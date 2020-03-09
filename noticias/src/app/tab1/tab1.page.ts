@@ -20,4 +20,8 @@ export class Tab1Page implements OnInit {
   	})
   }
 
+  lanzarMenu(){
+    
+  }
+
 }

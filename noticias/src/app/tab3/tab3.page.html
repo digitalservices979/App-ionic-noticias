@@ -7,9 +7,13 @@
 </ion-header>
 
 <ion-content color="dark">
-  <div *ngIf="noticias">
-    <span style="color:black">{{noticias.title|async}}</span>
-  </div>
+  <ion-slides *ngIf="dataLocal.noticias.length == 0">
+    <ion-slide>
+      <ion-label>
+        No hay favoritos
+      </ion-label>
+    </ion-slide>
+  </ion-slides>
 
   <ion-grid fixed>
     <ion-row>
@@ -18,7 +22,13 @@
         
           <ion-card-header>
             <ion-card-subtitle>
-              <span class="noticia-source-name">{{noticia.source.name}}</span>
+              <span class="text-primary">{{i+1}}. </span>
+              <span class="noticia-source-name">{{noticia.source.name}}</span>    
+              <div class="noticia-more">
+                <ion-button fill="clear" (click)="lanzarMenu(noticia)">
+                  <ion-icon name="more"></ion-icon>
+                </ion-button>
+              </div> 
           </ion-card-subtitle>
             <ion-card-title>{{noticia.title}}</ion-card-title>
           </ion-card-header>
